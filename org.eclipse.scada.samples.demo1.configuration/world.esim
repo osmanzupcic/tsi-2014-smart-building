@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ASCII"?>
+<infrastructure:World xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduino="http://eclipe.org/SCADA/Configuration/Arduino" xmlns:deployment="http://eclipse.org/SCADA/Configuration/World/Deployment" xmlns:iec60870="http://openscada.org/Configuration/IEC60870" xmlns:infrastructure="http://eclipse.org/SCADA/Configuration/Infrastructure" xmlns:jdbc="http://eclipse.org/SCADA/Configuration/Driver/JDBC" xmlns:modbus="http://eclipse.org/SCADA/Configuration/Modbus" xmlns:osgi="http://eclipse.org/SCADA/Configuration/World/OSGi" xmlns:parser="http://eclipse.org/SCADA/DA/Server/Parser" xmlns:parserDriver="http://eclipse.org/SCADA/Configuration/Driver/Parser" xmlns:world="http://eclipse.org/SCADA/Configuration/World" xmi:id="_tiIpgOaTEeOz_d9aE-D5Rg">
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_tiIpguaTEeOz_d9aE-D5Rg" hostName="demo.openscada.org">
+    <devices xsi:type="iec60870:IEC60870Device" xmi:id="_M6QWUAwMEeStKoZt2pg9pA" name="iec1">
+      <dataModuleOptions xmi:id="_OVPGkAwMEeStKoZt2pg9pA"/>
+      <protocolOptions xmi:id="_PjzLcAwMEeStKoZt2pg9pA"/>
+    </devices>
+    <deployment xsi:type="deployment:RedhatDeploymentMechanism" xmi:id="_tiIpg-aTEeOz_d9aE-D5Rg" automaticCreate="true" recreateBackups="2" license="EPL">
+      <changes xmi:id="_tiIphOaTEeOz_d9aE-D5Rg" date="2014-02-13T11:49:38.924+0100" description="Initial version." version="0.1.0">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      <additionalDependencies>postgresql-server</additionalDependencies>
+      <additionalDependencies>org.openscada.jdbc.postgres >= 1.2.0</additionalDependencies>
+      <additionalDependencies>org.openscada.p2 >= 1.2.0</additionalDependencies>
+    </deployment>
+    <drivers xsi:type="infrastructure:CommonDriver" xmi:id="_tiIpheaTEeOz_d9aE-D5Rg" name="exec" driverTypeId="org.eclipse.scada.da.server.exec" portNumber="2107"/>
+    <valueArchives xmi:id="_tiIphuaTEeOz_d9aE-D5Rg" name="hdserver" instanceNumber="2"/>
+    <masters xmi:id="_tiIph-aTEeOz_d9aE-D5Rg" name="master" configuration="_tiKesOaTEeOz_d9aE-D5Rg" driver="_tiIpheaTEeOz_d9aE-D5Rg _tiJQkOaTEeOz_d9aE-D5Rg _tiJQl-aTEeOz_d9aE-D5Rg _vs3y4BGtEeSs3Yl3m044SA" archiveTo="_tiIphuaTEeOz_d9aE-D5Rg">
+      <authoratives xmi:id="_tiIpiOaTEeOz_d9aE-D5Rg">
+        <hierarchy>ES</hierarchy>
+        <hierarchy>DEMO</hierarchy>
+      </authoratives>
+    </masters>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_tiIpieaTEeOz_d9aE-D5Rg" hostName="ostest1.muc.ibhmgt.de">
+    <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_tiIpiuaTEeOz_d9aE-D5Rg">
+      <changes xmi:id="_tiIpi-aTEeOz_d9aE-D5Rg" date="2014-02-13T11:42:45.454+0100" description="Initial version" version="0.1.0">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+    </deployment>
+    <drivers xsi:type="infrastructure:EquinoxDriver" xmi:id="_tiJQkOaTEeOz_d9aE-D5Rg" name="arduino" driverTypeId="org.eclipse.scada.da.server.arduino" devices="_tiJQnOaTEeOz_d9aE-D5Rg" instanceNumber="8">
+      <userService xsi:type="infrastructure:SystemPropertyUserService" xmi:id="_tiJQkeaTEeOz_d9aE-D5Rg">
+        <users xmi:id="_tiJQkuaTEeOz_d9aE-D5Rg" name="driver" password="driver12">
+          <roles>INTERLINK</roles>
+        </users>
+      </userService>
+      <accessCredentials xsi:type="world:UsernamePasswordCredentials" xmi:id="_tiJQk-aTEeOz_d9aE-D5Rg" username="driver" password="driver12"/>
+    </drivers>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_tiJQlOaTEeOz_d9aE-D5Rg" hostName="scada.eclipse.org">
+    <deployment xsi:type="deployment:RedhatDeploymentMechanism" xmi:id="_tiJQleaTEeOz_d9aE-D5Rg" license="EPL">
+      <changes xmi:id="_tiJQluaTEeOz_d9aE-D5Rg" date="2014-05-02T12:43:13.399+0200" description="Initial version." version="0.1.0">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <changes xmi:id="_UZE9MPxGEeOqD6E9NI_sbg" date="2014-06-25T10:54:27.825+0200" description="Start working on 0.2.0 features." version="0.2.0">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      <additionalDependencies>org.openscada.p2.repo.main >= 1.2.0</additionalDependencies>
+      <additionalDependencies>postgresql-server</additionalDependencies>
+    </deployment>
+    <drivers xsi:type="infrastructure:CommonDriver" xmi:id="_tiJQl-aTEeOz_d9aE-D5Rg" name="exec" driverTypeId="org.eclipse.scada.da.server.exec" portNumber="2107"/>
+    <drivers xsi:type="jdbc:JdbcDriver" xmi:id="_W0rLEPuEEeO-f56CEkRkzg" name="jdbc" portNumber="2108"/>
+    <drivers xsi:type="parserDriver:ParserComponentHost" xmi:id="_vs3y4BGtEeSs3Yl3m044SA" name="parser" instanceNumber="9">
+      <accessCredentials xsi:type="world:UsernamePasswordCredentials" xmi:id="_B9WNsBG7EeS0gICyQfUAqw" username="admin" password="admin12"/>
+      <components xmi:id="_vs3y4RGtEeSs3Yl3m044SA" id="proc.cmdline">
+        <input xsi:type="parser:FileInput" xmi:id="_vs3y4hGtEeSs3Yl3m044SA" fileName="/proc/uptime"/>
+        <extractors xsi:type="parser:PlainText" xmi:id="_vs3y4xGtEeSs3Yl3m044SA"/>
+      </components>
+      <components xmi:id="_vs3y5BGtEeSs3Yl3m044SA" id="fortiss">
+        <input xsi:type="parser:UrlInput" xmi:id="_vs3y5RGtEeSs3Yl3m044SA" url="http://livinglab.fortiss.org/solarlog/min_cur.js" charset="UTF-8"/>
+        <extractors xsi:type="parser:SinglePattern" xmi:id="_vs3y5hGtEeSs3Yl3m044SA" prefix="ac" pattern="(?m)^var Pac=([0-9\.]+)$">
+          <value xmi:id="_vs3y5xGtEeSs3Yl3m044SA">
+            <primaryValue xsi:type="parser:NumericGroupField" xmi:id="_vs3y6BGtEeSs3Yl3m044SA" type="DOUBLE" groupNumber="1"/>
+          </value>
+        </extractors>
+        <extractors xsi:type="parser:SinglePattern" xmi:id="_vs3y6RGtEeSs3Yl3m044SA" prefix="dc" pattern="(?m)^var aPdc=new Array\(([0-9\\.]+).*?\)$">
+          <value xmi:id="_vs3y6hGtEeSs3Yl3m044SA">
+            <primaryValue xsi:type="parser:NumericGroupField" xmi:id="_vs3y6xGtEeSs3Yl3m044SA" type="DOUBLE" groupNumber="1"/>
+          </value>
+        </extractors>
+      </components>
+      <components xmi:id="_xmWLwBMHEeSjHMvJjartLA" id="greenhouse-eclipse-temperature">
+        <input xsi:type="parser:MqttInput" xmi:id="_iD11QBMJEeS2lsu97D1sdw" serverUri="tcp://iot.eclipse.org:1883" topic="javaonedemo/eclipse-greenhouse-ben/sensors/temperature">
+          <transformers xsi:type="parser:StringTransformer" xmi:id="_-28-0BMKEeS2lsu97D1sdw"/>
+        </input>
+        <extractors xsi:type="parser:PlainText" xmi:id="_WKIU8BMMEeS2lsu97D1sdw">
+          <valueConverter xsi:type="parser:DoubleValueConverter" xmi:id="_oFWeMBgLEeS7fO2lmnx7_w"/>
+        </extractors>
+      </components>
+      <components xmi:id="_osj6EBMnEeS2lsu97D1sdw" id="greenhouse-eclipse-light">
+        <input xsi:type="parser:MqttInput" xmi:id="_osj6ERMnEeS2lsu97D1sdw" serverUri="tcp://iot.eclipse.org:1883" topic="javaonedemo/eclipse-greenhouse-ben/sensors/light">
+          <transformers xsi:type="parser:StringTransformer" xmi:id="_osj6EhMnEeS2lsu97D1sdw"/>
+        </input>
+        <extractors xsi:type="parser:PlainText" xmi:id="_osj6ExMnEeS2lsu97D1sdw"/>
+      </components>
+      <components xmi:id="_WvJ8gBgNEeS7fO2lmnx7_w" id="greenhouse-sim-temperature">
+        <input xsi:type="parser:MqttInput" xmi:id="_WvJ8gRgNEeS7fO2lmnx7_w" serverUri="tcp://iot.eclipse.org:1883" topic="javaonedemo/eclipse-greenhouse-sim/sensors/temperature">
+          <transformers xsi:type="parser:StringTransformer" xmi:id="_WvJ8ghgNEeS7fO2lmnx7_w"/>
+        </input>
+        <extractors xsi:type="parser:PlainText" xmi:id="_WvJ8gxgNEeS7fO2lmnx7_w">
+          <valueConverter xsi:type="parser:DoubleValueConverter" xmi:id="_WvJ8hBgNEeS7fO2lmnx7_w"/>
+        </extractors>
+      </components>
+      <components xmi:id="_WvJ8hRgNEeS7fO2lmnx7_w" id="greenhouse-sim-light">
+        <input xsi:type="parser:MqttInput" xmi:id="_WvJ8hhgNEeS7fO2lmnx7_w" serverUri="tcp://iot.eclipse.org:1883" topic="javaonedemo/eclipse-greenhouse-sim/sensors/light">
+          <transformers xsi:type="parser:StringTransformer" xmi:id="_WvJ8hxgNEeS7fO2lmnx7_w"/>
+        </input>
+        <extractors xsi:type="parser:PlainText" xmi:id="_WvJ8iBgNEeS7fO2lmnx7_w"/>
+      </components>
+    </drivers>
+    <masters xmi:id="_tiJQmOaTEeOz_d9aE-D5Rg" name="master" driver="_tiJQl-aTEeOz_d9aE-D5Rg _tiJQkOaTEeOz_d9aE-D5Rg _tiIpheaTEeOz_d9aE-D5Rg _W0rLEPuEEeO-f56CEkRkzg _vs3y4BGtEeSs3Yl3m044SA" archiveTo="_tiJQmuaTEeOz_d9aE-D5Rg">
+      <authoratives xmi:id="_tiJQmeaTEeOz_d9aE-D5Rg">
+        <hierarchy>ES</hierarchy>
+        <hierarchy>DEMO</hierarchy>
+      </authoratives>
+    </masters>
+    <valueArchives xmi:id="_tiJQmuaTEeOz_d9aE-D5Rg" name="hdserver" instanceNumber="2"/>
+  </nodes>
+  <nodes xsi:type="infrastructure:ExternalNode" xmi:id="_tiJQm-aTEeOz_d9aE-D5Rg" hostName="172.20.11.105">
+    <devices xsi:type="arduino:ArduinoDevice" xmi:id="_tiJQnOaTEeOz_d9aE-D5Rg" name="A1" port="8888"/>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_tiJQneaTEeOz_d9aE-D5Rg" hostName="pi01.intra">
+    <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_tiJQnuaTEeOz_d9aE-D5Rg" startupMechanism="LSB_SYSV">
+      <changes xmi:id="_tiJQn-aTEeOz_d9aE-D5Rg" date="2014-05-21T15:23:28.709+0200" description="Initial version" version="0.0.1">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+    </deployment>
+    <drivers xsi:type="infrastructure:CommonDriver" xmi:id="_tiJQoOaTEeOz_d9aE-D5Rg" name="exec" driverTypeId="org.eclipse.scada.da.server.exec" portNumber="2107"/>
+    <masters xmi:id="_tiJ3o-aTEeOz_d9aE-D5Rg" name="master" configuration="_tiKeuuaTEeOz_d9aE-D5Rg" driver="_tiJQoOaTEeOz_d9aE-D5Rg" archiveTo="_tiJ3pOaTEeOz_d9aE-D5Rg"/>
+    <valueArchives xmi:id="_tiJ3pOaTEeOz_d9aE-D5Rg" name="hdserver" instanceNumber="2"/>
+  </nodes>
+  <nodes xsi:type="infrastructure:SystemNode" xmi:id="_PMM24AwkEeSCA6q8DIlZ6Q" name="BeagleBoneBlack" hostName="beaglebone.local">
+    <deployment xsi:type="deployment:DebianDeploymentMechanism" xmi:id="_Se1FQAwkEeSCA6q8DIlZ6Q" startupMechanism="LSB_SYSV">
+      <changes xmi:id="_T1lc0AwkEeSCA6q8DIlZ6Q" date="2014-07-15T15:31:20.852+0200" description="Initial version for BBB." version="0.0.1">
+        <author href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+      </changes>
+      <maintainer href="global/deployment.information.esdi#_m8TbwZSTEeOI_-YITJ2PnA"/>
+    </deployment>
+    <drivers xsi:type="iec60870:IEC60870Driver" xmi:id="_IfNHUAwMEeStKoZt2pg9pA" name="iec1" instanceNumber="5" devices="_M6QWUAwMEeStKoZt2pg9pA"/>
+    <masters xmi:id="_XlxJ4AwkEeSCA6q8DIlZ6Q" name="master" configuration="_tiKesOaTEeOz_d9aE-D5Rg" driver="_IfNHUAwMEeStKoZt2pg9pA" archiveTo="_YCOcYAwkEeSCA6q8DIlZ6Q"/>
+    <valueArchives xmi:id="_YCOcYAwkEeSCA6q8DIlZ6Q" name="hdserver" instanceNumber="2"/>
+  </nodes>
+  <options xmi:id="_tiJ3peaTEeOz_d9aE-D5Rg">
+    <monitorPools xmi:id="_tiJ3puaTEeOz_d9aE-D5Rg" name="monitors.unsafe" filter="(status=UNSAFE)"/>
+    <monitorPools xmi:id="_tiJ3p-aTEeOz_d9aE-D5Rg" name="monitors.inactive" filter="(status=INACTIVE)"/>
+    <monitorPools xmi:id="_tiJ3qOaTEeOz_d9aE-D5Rg" name="monitors.not_ok" filter="(|(status=NOT_OK)(status=NOT_OK_NOT_AKN)(status=NOT_OK_AKN))"/>
+    <monitorPools xmi:id="_tiJ3qeaTEeOz_d9aE-D5Rg" name="monitors.ack_required" filter="(|(status=NOT_AKN)(status=NOT_OK_NOT_AKN))"/>
+    <monitorPools xmi:id="_tiJ3quaTEeOz_d9aE-D5Rg" name="monitors.init" filter="(status=INIT)"/>
+    <monitorPools xmi:id="_tiJ3q-aTEeOz_d9aE-D5Rg" name="monitors.all" filter="(status=*)"/>
+    <eventPools xmi:id="_tiJ3rOaTEeOz_d9aE-D5Rg" name="events.all" filter="(eventType=*)" size="10000"/>
+    <defaultUserService xsi:type="infrastructure:SystemPropertyUserService" xmi:id="_tiJ3reaTEeOz_d9aE-D5Rg">
+      <users xmi:id="_tiJ3ruaTEeOz_d9aE-D5Rg" name="admin" password="admin12">
+        <roles>DEVELOPER</roles>
+        <roles>OPERATOR</roles>
+        <roles>ADMIN</roles>
+      </users>
+      <users xmi:id="_tiJ3r-aTEeOz_d9aE-D5Rg" name="interconnect" password="interconnect12">
+        <roles>INTERLINK</roles>
+      </users>
+      <users xmi:id="_tiJ3sOaTEeOz_d9aE-D5Rg" name="guest" password="guest12"/>
+    </defaultUserService>
+  </options>
+  <defaultSecurityConfiguration href="global/global.security#/"/>
+  <defaultMasterHandlerPriorities href="platform:/plugin/org.eclipse.scada.configuration.lib/model/defaultPriorities.eswm#_sLVwoN_iEeKP_IG4d7_Nqg"/>
+  <defaultCredentials xsi:type="world:UsernamePasswordCredentials" xmi:id="_tiJ3seaTEeOz_d9aE-D5Rg" username="interconnect" password="interconnect12"/>
+  <defaultMasterCustomizationProfile href="global/master.customization.profile.xml#/"/>
+  <defaultValueArchiveCustomizationProfile href="global/hdserver.customization.profile.xml#/"/>
+  <defaultDriverPassword xmi:id="_tiJ3suaTEeOz_d9aE-D5Rg" password="driver12"/>
+  <applicationConfigurations xsi:type="osgi:EventStoragePostgres" xmi:id="_nh754PxFEeOqD6E9NI_sbg" archiveDays="90" cleanupPeriodSeconds="3600" database="_e_FbAPt0EeO-4tLXpGArVg" batchSize="100"/>
+  <configurations xmi:id="_tiJ3s-aTEeOz_d9aE-D5Rg">
+    <configurations xmi:id="_tiKesOaTEeOz_d9aE-D5Rg" name="defaultMaster">
+      <modules xsi:type="infrastructure:HttpServiceModule" xmi:id="_tiKeseaTEeOz_d9aE-D5Rg"/>
+      <modules xsi:type="infrastructure:RestExporterModule" xmi:id="_tiKesuaTEeOz_d9aE-D5Rg" contextId="eclipsescada"/>
+      <modules xsi:type="infrastructure:EventInjectorSyslog" xmi:id="_cJgQoC6bEeSfEdtdwCW_Dg"/>
+      <configurations xsi:type="osgi:EventStorageJdbc" xmi:id="_tiKes-aTEeOz_d9aE-D5Rg" archiveDays="90" cleanupPeriodSeconds="300" database="_j-pfwBZkEeSdaJm9Ml6jZg" maxFieldLength="4000"/>
+    </configurations>
+    <configurations xmi:id="_tiKeuOaTEeOz_d9aE-D5Rg" name="test">
+      <modules xsi:type="infrastructure:HttpServiceModule" xmi:id="_tiKeueaTEeOz_d9aE-D5Rg" port="3"/>
+    </configurations>
+    <configurations xmi:id="_tiKeuuaTEeOz_d9aE-D5Rg" name="piMaster">
+      <modules xsi:type="infrastructure:HttpServiceModule" xmi:id="_tiKeu-aTEeOz_d9aE-D5Rg"/>
+      <modules xsi:type="infrastructure:RestExporterModule" xmi:id="_tiKevOaTEeOz_d9aE-D5Rg" contextId="eclipsescada"/>
+      <modules xsi:type="infrastructure:WebAdminConsole" xmi:id="_tiKeveaTEeOz_d9aE-D5Rg" httpService="_tiKeu-aTEeOz_d9aE-D5Rg"/>
+      <modules xsi:type="infrastructure:OracleVMSettings" xmi:id="_tiKevuaTEeOz_d9aE-D5Rg" maximumHeapSize="1024m"/>
+    </configurations>
+    <settings xsi:type="world:GenericDatabaseSettings" xmi:id="_e_FbAPt0EeO-4tLXpGArVg" id="DB1" username="eclipsescada" password="eclipsescada" databaseName="eclipsescada" serverName="localhost" url="jdbc:postgresql://localhost/eclipsescada" driverName="org.postgresql.Driver">
+      <bundles>org.openscada.external.postgresql</bundles>
+    </settings>
+    <settings xsi:type="modbus:ModbusExporterModule" xmi:id="_9jxYQBZCEeSo5OeoSPCQKg">
+      <properties xmi:id="_-fD70BZCEeSo5OeoSPCQKg" key="user" value="admin"/>
+      <properties xmi:id="_-6HgIBZCEeSo5OeoSPCQKg" key="password" value="admin12"/>
+    </settings>
+    <settings xsi:type="world:PostgresDatabaseSettings" xmi:id="_j-pfwBZkEeSdaJm9Ml6jZg" id="DB2" username="eclipsescada" password="eclipsescada" databaseName="eclipsescada" serverName="locahost"/>
+  </configurations>
+</infrastructure:World>

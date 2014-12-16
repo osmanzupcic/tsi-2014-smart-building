@@ -1,0 +1,68 @@
+var DefaultFeatures = Packages.org.eclipse.scada.configuration.lib.DefaultFeatures;
+
+if ( request.isComponentClass ( "DriverConnectionAnalyzer") ) {
+	if ( request.isLocalTags ( [ "STATE"] ))
+		{
+			request.addFeature ( DefaultFeatures.VALUE_LOGGER ) ;
+		}
+}
+
+if ( ( request.isAnalog () || request.isStringType () ) && request.hasTag ( "input" ) ) {
+
+	if ( request.isComponentClass ( "LoadAverage" ) ) {
+		request.addFeature ( DefaultFeatures.MIN(0) );
+	}
+	
+	if ( request.isComponentClass ( "SystemInformationVMStat" ) ) {
+		if ( request.isLocalTags ( [ "CPU", "USER" ] ) ||
+				request.isLocalTags ( [ "CPU", "SYS" ] ) ||
+				request.isLocalTags ( [ "CPU", "IDLE" ] ) ||
+				request.isLocalTags ( [ "CPU", "WAIT" ] )
+				) {
+			request.addFeature ( DefaultFeatures.MIN(0) );
+			request.addFeature ( DefaultFeatures.MAX(100) );
+		}
+	}
+	
+	// we grant all analog inputs level monitors for the demo system
+	request.addFeature ( org.eclipse.scada.configuration.lib.DefaultFeatures.HH(null) );
+	request.addFeature ( DefaultFeatures.H(null) );
+	request.addFeature ( DefaultFeatures.L(null) );
+	request.addFeature ( DefaultFeatures.LL(null) );
+	
+	// all analogs inputs may be scaled and rounded
+	request.addFeature ( DefaultFeatures.SCALE(null, null) );
+	request.addFeature ( DefaultFeatures.ROUND(null) );
+	
+	// all analog inputs end with "V = value"
+	request.getLocalTags().add ( "V" ); // V = value
+
+} else if ( request.isDigital () && request.hasTag ( "input" ) )
+	request.getLocalTags().add ( "M" ); // message
+
+else if ( request.isDigital () && request.hasTag ( "command" ) ) {
+	request.addFeature ( DefaultFeatures.WRITE_LOGGER ) ;
+	request.getLocalTags().add ( "C" ); // command
+	
+} else if ( request.isAnalog () && request.hasTag ( "output" ) ) {
+	request.addFeature ( DefaultFeatures.WRITE_LOGGER ) ;
+	request.getLocalTags().add ( "S" ); // setpoint
+
+} else if ( request.hasTag ( "summary" ) ) {
+	request.getLocalTags().removeLast ();
+	request.getLocalTags().add ( "SUM" );
+	request.getLocalTags().add ( "V" ); // value
+	
+} else
+	request.getLocalTags().add ( "X" ); //unknown
+
+// Always add a manual override for inputs
+
+if ( request.hasTag ( "input" ) ) {
+	request.addFeature ( DefaultFeatures.MANUAL_OVERRIDE(null) );
+}
+
+// Always add the Attributes Summary
+
+request.addFeature ( DefaultFeatures.ASUM() );
+request.addFeature ( DefaultFeatures.BLOCK() );
