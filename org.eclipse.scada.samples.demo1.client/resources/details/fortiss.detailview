@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<detailView:View
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:detailView="http://eclipse.org/SCADA/DetailView/1.0">
+  <headerComponent
+      xsi:type="detailView:SimpleGridComponent"
+      cols="1">
+    <children
+        xsi:type="detailView:TextComponent"
+        format="Summary"
+        descriptor="$connection$#$sumItem$"/>
+    <children
+        xsi:type="detailView:LinkComponent"
+        format="Data from &lt;a href=&quot;http://livinglab.fortiss.org/&quot;>fortiss Living Lab&lt;/a>"/>
+  </headerComponent>
+  <groups label="Overview">
+    <component
+        xsi:type="detailView:GroupGridComponent"
+        cols="1">
+      <groups
+          label="PV">
+        <components
+            xsi:type="detailView:TextComponent"
+            format="DC"
+            hdConnectionId="$hdConnection$"
+            hdItemId="$prefix$.PV.DC.V"
+            hdQueryString="86400000:600000:0:7000"
+            descriptor="$connection$#$prefix$.PV.DC.V"/>
+        <components
+            xsi:type="detailView:TextComponent"
+            format="AC"
+            hdConnectionId="$hdConnection$"
+            hdItemId="$prefix$.PV.AC.V"
+            hdQueryString="86400000:600000:0:7000"
+            descriptor="$connection$#$prefix$.PV.AC.V"/>
+      </groups>
+    </component>
+  </groups>
+</detailView:View>

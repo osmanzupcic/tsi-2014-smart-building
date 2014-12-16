@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<visualInterface:Symbol xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:visualInterface="http://eclipse.org/SCADA/VisualInterface" backgroundColor="#FFFFFF">
+  <root xsi:type="visualInterface:XYContainer">
+    <children>
+      <element xsi:type="visualInterface:Image" opaque="false" uri="../images/prizemlje.png" imageAlignment="LEFT"/>
+      <position x="250.0" y="10.0"/>
+    </children>
+    <children>
+      <element xsi:type="visualInterface:BorderContainer">
+        <children alignment="TOP">
+          <element xsi:type="visualInterface:GridContainer" columns="2" horizontalSpacing="30">
+            <children verticalAlignment="FILL">
+              <element xsi:type="visualInterface:Text" text="Prizemlje " fontSize="15" fontBold="true"/>
+            </children>
+          </element>
+        </children>
+      </element>
+    </children>
+    <children>
+      <element xsi:type="visualInterface:SymbolReference" uri="../symbols/senzor/senzor.vi">
+        <properties key="title" value="Senzor"/>
+        <properties key="prefix" value="ES.DEMO.ARDUINO001"/>
+      </element>
+      <position x="10.0" y="50.0"/>
+      <dimension width="200.0" height="-1.0"/>
+    </children>
+  </root>
+  <properties key="connection" value="connection.da.main"/>
+  <properties key="hdConnection" value="connection.hd.main"/>
+</visualInterface:Symbol>

@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.sc
+ ada.core.ui.connection.login;bundle-version="0.1.0",org.eclipse.scada
+ .ae.ui.connection.creator.ngp;bundle-version="0.1.0",org.eclipse.scad
+ a.da.ui.connection.creator.ngp;bundle-version="0.1.0",org.eclipse.sca
+ da.hd.ui.connection.creator.ngp;bundle-version="0.1.0",org.eclipse.sc
+ ada.ca.ui.connection.creator.ngp;bundle-version="0.1.0",org.eclipse.c
+ ore.expressions,org.eclipse.scada.ae.ui.views;bundle-version="0.1.0",
+ org.eclipse.scada.vi.details;bundle-version="0.1.0",org.eclipse.scada
+ .vi.details.swt;bundle-version="0.1.0",org.eclipse.scada.vi.ui.user;b
+ undle-version="0.1.0",org.eclipse.scada.vi.ui.viewer.ext;bundle-versi
+ on="0.1.0",org.eclipse.scada.ui.chart.view;bundle-version="0.1.0",org
+ .eclipse.scada.samples.demo1.app;bundle-version="0.1.0",org.eclipse.s
+ cada.vi.ui.chart.draw2d;bundle-version="0.1.0",org.eclipse.scada.vi.u
+ i.draw2d;bundle-version="0.1.0",org.eclipse.scada.ui.utils.handler;bu
+ ndle-version="0.2.0"
+Eclipse-SourceReferences: scm:git:git://git.eclipse.org/gitroot/scada/
+ org.eclipse.scada.samples.git;path="org.eclipse.scada.samples.demo1.c
+ lient";commitId=8cf23e986cac3a6de8f5307ee1ab009467344244
+Bundle-Vendor: Eclipse SCADA Project
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 0.2.0.v20140930-1354
+Bundle-Name: Demo Client
+Bundle-Activator: org.eclipse.scada.samples.demo1.client.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: org.eclipse.scada.samples.demo1.client;singleton:
+ =true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+

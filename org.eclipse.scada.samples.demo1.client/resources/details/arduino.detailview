@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<detailView:View
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:detailView="http://eclipse.org/SCADA/DetailView/1.0">
+  <headerComponent
+      xsi:type="detailView:TextComponent"
+      format="Summary"
+      descriptor="$connection$#$sumItem$"/>
+  <groups label="Overview">
+    <component
+        xsi:type="detailView:GroupGridComponent">
+      <groups
+          label="Measured Data">
+        <components
+            xsi:type="detailView:TextComponent"
+            format="Light"
+            hdConnectionId="$hdConnection$"
+            hdItemId="$prefix$.LIGHT.V"
+            hdQueryString="86400000:600000:0:2000"
+            descriptor="$connection$#$prefix$.LIGHT.V"/>
+        <components
+            xsi:type="detailView:TextComponent"
+            format="Temperature (°C)"
+            hdConnectionId="$hdConnection$"
+            hdItemId="$prefix$.TEMPERATURE.V"
+            hdQueryString="86400000:600000:0:50"
+            descriptor="$connection$#$prefix$.TEMPERATURE.V"/>
+        <components
+            xsi:type="detailView:TextComponent"
+            format="Humidity (%)"
+            hdConnectionId="$hdConnection$"
+            hdItemId="$prefix$.HUMIDITY.V"
+            hdQueryString="86400000:600000:0:100"
+            descriptor="$connection$#$prefix$.HUMIDITY.V"/>
+      </groups>
+      <groups
+          label="Webcam">
+        <components
+            xsi:type="detailView:URLImageComponent"
+            descriptor=""
+            fallbackImageUrl="http://muc.ibhmgt.de:8080/cgi-bin/nph-mjgrab?1"
+            width="640"
+            height="480"
+            reloadTimer="1000"/>
+      </groups>
+      <groups
+          label="Control">
+        <components
+            xsi:type="detailView:ButtonComponent"
+            format="Light On"
+            value="BOOLEAN#true"
+            writeDescriptor="$connection$#$prefix$.CUBE.C"/>
+        <components
+            xsi:type="detailView:ButtonComponent"
+            format="Light Off"
+            value="BOOLEAN#false"
+            writeDescriptor="$connection$#$prefix$.CUBE.C"/>
+      </groups>
+    </component>
+  </groups>
+</detailView:View>
