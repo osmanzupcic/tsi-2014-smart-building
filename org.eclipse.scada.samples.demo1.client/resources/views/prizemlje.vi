@@ -10,7 +10,7 @@
         <children alignment="TOP">
           <element xsi:type="visualInterface:GridContainer" columns="2" horizontalSpacing="30">
             <children verticalAlignment="FILL">
-              <element xsi:type="visualInterface:Text" text="Prizemlje " fontSize="15" fontBold="true"/>
+              <element xsi:type="visualInterface:Text" text="azer" fontSize="15" fontBold="true"/>
             </children>
           </element>
         </children>
